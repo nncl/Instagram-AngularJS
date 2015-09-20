@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Instagram Photos w/ AngularJS</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+
+        <style>
+            td > * {
+                display: inline-block;
+                margin: 0 !important;
+                width: 33.3333%;
+            }
+        </style>
+
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    </head>
+    <body class="text-center" ng-app="myApp" ng-controller="ExampleCtrl">
+
+        <h1>Posts from Instagram with AngularJS</h1>
+
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td>
+                        <div class="row" ng-repeat="p in pics">
+                            <a href="{{p.link}}" target="_blank">
+                                <img ng-src="{{p.images.low_resolution.url}}" class="img-responsive " title="{{p.caption.text}}" />
+                            </a>
+                            <span class="glyphicon glyphicon-heart"> {{p.likes.count}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--<button type="button" class="btn btn-success" ng-click="getMore()">You have {{pics.length}} pictures on page - Click to see more pictures?</button>-->
+
+        <script src="js/controllers/AppCtrl.js"></script>
+        <!--<script src="js/services/AppService.js"></script>-->
+    </body>
+</html>
